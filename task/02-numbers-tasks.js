@@ -21,8 +21,7 @@
  *   5, 5  => 25
  */
 export function getRectangleArea(width, height) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  return width * height;
 }
 
 
@@ -38,8 +37,7 @@ export function getRectangleArea(width, height) {
  *   0    => 0
  */
 export function getCicleCircumference(radius) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  return 2 * Math.PI * radius;
 }
 
 /**
@@ -55,8 +53,7 @@ export function getCicleCircumference(radius) {
  *  -3, 3  => 0
  */
 export function getAverage(value1, value2) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  return value1 / 2 + value2 / 2;
 }
 
 /**
@@ -75,8 +72,8 @@ export function getAverage(value1, value2) {
  *   (-5,0) (10,-10) => 18.027756377319946
  */
 export function getDistanceBetweenPoints(x1, y1, x2, y2) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  // return Math.pow(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2), 1/2);
+  return Math.hypot(x2 - x1, y2 - y1);
 }
 
 /**
@@ -92,8 +89,7 @@ export function getDistanceBetweenPoints(x1, y1, x2, y2) {
  *   5*x = 0         => 0
  */
 export function getLinearEquationRoot(a, b) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  return -b / a;
 }
 
 
@@ -116,8 +112,9 @@ export function getLinearEquationRoot(a, b) {
  *   (0,1) (1,2)     => 0
  */
 export function getAngleBetweenVectors(x1, y1, x2, y2) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  const scalarProduct = x1 * x2 + y1 * y2;
+  const vectorModulus = (x, y) => Math.hypot(x, y);
+  return Math.acos(scalarProduct / (vectorModulus(x1, y1) * vectorModulus(x2, y2)));
 }
 
 /**
@@ -133,8 +130,8 @@ export function getAngleBetweenVectors(x1, y1, x2, y2) {
  *     0     => 0
  */
 export function getLastDigit(value) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  let str = value.toString();
+  return +str[str.length - 1];
 }
 
 
@@ -150,8 +147,7 @@ export function getLastDigit(value) {
  * '-525.5'     => -525.5
  */
 export function parseNumberFromString(value) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  return +value;
 }
 
 /**
@@ -168,8 +164,7 @@ export function parseNumberFromString(value) {
  *   1,2,3   => 3.741657386773941
  */
 export function getParallelipidedDiagonal(a, b, c) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  return Math.hypot(a, b, c);
 }
 
 /**
@@ -190,8 +185,8 @@ export function getParallelipidedDiagonal(a, b, c) {
  *   1678, 3  => 2000
  */
 export function roundToPowerOfTen(num, pow) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  let accuracy = Math.pow(10, pow);
+  return Math.round(num / accuracy) * accuracy;
 }
 
 /**
@@ -212,8 +207,10 @@ export function roundToPowerOfTen(num, pow) {
  *   17 => true
  */
 export function isPrime(n) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  for (let i = 2; i < n; i++) {
+    if (n % i === 0) return false;
+  }
+  return n !== 1;
 }
 
 /**
@@ -232,6 +229,5 @@ export function isPrime(n) {
  *   toNumber(new Number(42), 0) => 42
  */
 export function toNumber(value, def) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  return !isNaN(+value) ? +value : def;
 }
