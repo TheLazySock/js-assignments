@@ -22,8 +22,7 @@
  *    [0, 1, 2, 3, 4, 5], 5    => 5
  */
 export function findElement(arr, value) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  return arr.findIndex(el =>  el === value);
 }
 
 /**
@@ -38,8 +37,8 @@ export function findElement(arr, value) {
  *    5 => [ 1, 3, 5, 7, 9 ]
  */
 export function generateOdds(len) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  let arr = [...new Array(len).keys()];
+  return arr.map(el => el * 2 + 1);
 }
 
 
@@ -56,8 +55,7 @@ export function generateOdds(len) {
  *    [] => []
  */
 export function doubleArray(arr) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  return arr.concat(arr);
 }
 
 
@@ -73,8 +71,7 @@ export function doubleArray(arr) {
  *    [] => []
  */
 export function getArrayOfPositives(arr) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  return arr.filter(el => el > 0);
 }
 
 /**
@@ -89,8 +86,7 @@ export function getArrayOfPositives(arr) {
  *    [ 'cat, 'dog', 'raccon' ] => [ 'cat', 'dog', 'racoon' ]
  */
 export function getArrayOfStrings(arr) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  return arr.filter(el => typeof el === 'string');
 }
 
 /**
@@ -107,8 +103,7 @@ export function getArrayOfStrings(arr) {
  *    [ false, 0, NaN, '', undefined ]   => [ ]
  */
 export function removeFalsyValues(arr) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  return arr.filter(el => !!el);
 }
 
 /**
@@ -123,8 +118,7 @@ export function removeFalsyValues(arr) {
  *    [ 'a', 'b', 'c', 'd', 'e', 'f', 'g' ]  => [ 'A', 'B', 'C', 'D', 'E', 'F', 'G' ]
  */
 export function getUpperCaseStrings(arr) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  return arr.map(el => el.toUpperCase());
 }
 
 
@@ -139,8 +133,7 @@ export function getUpperCaseStrings(arr) {
  *    [ 'angular', 'react', 'ember' ] => [ 7, 5, 5 ]
  */
 export function getStringsLength(arr) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  return arr.map(el => el.length);
 }
 
 /**
@@ -155,8 +148,7 @@ export function getStringsLength(arr) {
  *    [ 1, 'b', 'c'], 0, 'x'  => [ 'x', 1, 'b', 'c' ]
  */
 export function insertItem(arr, item, index) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  return arr.splice(index, 0, item);
 }
 
 /**
@@ -170,8 +162,7 @@ export function insertItem(arr, item, index) {
  *    [ 'a', 'b', 'c', 'd'], 3  => [ 'a', 'b', 'c' ]
  */
 export function getHead(arr, n) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  return arr.slice(0, n);
 }
 
 
@@ -186,8 +177,7 @@ export function getHead(arr, n) {
  *    [ 'a', 'b', 'c', 'd'], 3  => [ 'b', 'c', 'd' ]
  */
 export function getTail(arr, n) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  return arr.slice(-n);
 }
 
 
@@ -212,8 +202,7 @@ export function getTail(arr, n) {
  *    +'30,31,32,33,34'
  */
 export function toCsvText(arr) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  return arr.map(el => el.join(',')).join('\n');
 }
 
 /**
@@ -228,8 +217,7 @@ export function toCsvText(arr) {
  *   [ 10, 100, -1 ]      => [ 100, 10000, 1 ]
  */
 export function toArrayOfSquares(arr) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  return arr.map(el => el * el);
 }
 
 
@@ -248,8 +236,10 @@ export function toArrayOfSquares(arr) {
  *   [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ] => [ 1, 3, 6, 10, 15, 21, 28, 36, 45, 55 ]
  */
 export function getMovingSum(arr) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  return arr.reduce((result, el, i) => {
+    result[i] = el + (i > 0 ? result[i - 1] : 0);
+    return result;
+  }, []);
 }
 
 /**
@@ -264,8 +254,12 @@ export function getMovingSum(arr) {
  * [ "a" ] => []
  */
 export function getSecondItems(arr) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  return arr.reduce((result, el, i) => {
+    if (i % 2 !== 0) {
+      result.push(el);
+    }
+    return result;
+  }, []);
 }
 
 
@@ -284,8 +278,11 @@ export function getSecondItems(arr) {
  *  [ 1,2,3,4,5 ] => [ 1, 2,2, 3,3,3, 4,4,4,4, 5,5,5,5,5 ]
  */
 export function propagateItemsByPositionIndex(arr) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  return arr.reduce((result, el, i) => {
+    const elemArr = new Array(i + 1).fill(el);
+    result.splice(result.length, 0, ...elemArr);
+    return result;
+  }, []);
 }
 
 
@@ -303,8 +300,7 @@ export function propagateItemsByPositionIndex(arr) {
  *   [ 10, 10, 10, 10 ] => [ 10, 10, 10 ]
  */
 export function get3TopItems(arr) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  return arr.sort((a, b) => b - a).slice(0, 3);
 }
 
 
@@ -322,8 +318,12 @@ export function get3TopItems(arr) {
  *   [ 1, '2' ] => 1
  */
 export function getPositivesCount(arr) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  return arr.reduce((result, el) => {
+    if (typeof el === 'number' && el > 0) {
+      return result += 1;
+    }
+    return result;
+  }, 0);
 }
 
 /**
@@ -340,8 +340,21 @@ export function getPositivesCount(arr) {
  *   [ 'one','one','one','zero' ]     => [ 'zero','one','one','one' ]
  */
 export function sortDigitNamesByNumericOrder(arr) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  const digitNames = [
+    'zero',
+    'one',
+    'two',
+    'three',
+    'four',
+    'five',
+    'six',
+    'seven',
+    'eight',
+    'nine'
+  ];
+  return arr.map(el => digitNames.indexOf(el))
+    .sort((a, b) => a - b)
+    .map(el => digitNames[el]);
 }
 
 /**
@@ -357,8 +370,7 @@ export function sortDigitNamesByNumericOrder(arr) {
  *   [ 1, 10, 100, 1000 ]  => 1111
  */
 export function getItemsSum(arr) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  return arr.reduce((result, el) => result += el, 0);
 }
 
 /**
@@ -374,8 +386,13 @@ export function getItemsSum(arr) {
  *  [ null, undefined, NaN, false, 0, '' ]  => 6
  */
 export function getFalsyValuesCount(arr) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  return arr.reduce((result, el) => {
+    if (!!el === false) {
+      result += 1;
+      return result;
+    }
+    return result;
+  }, 0);
 }
 
 /**
@@ -393,8 +410,13 @@ export function getFalsyValuesCount(arr) {
  *    [ true, 0, 1, 'true' ], true => 1
  */
 export function findAllOccurences(arr, item) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  return arr.reduce((result, el) => {
+    if (el === item) {
+      result += 1;
+      return result;
+    }
+    return result;
+  }, 0);
 }
 
 /**
@@ -409,8 +431,7 @@ export function findAllOccurences(arr, item) {
  *    ['rock', 'paper', 'scissors']     => 'rock,paper,scissors'
  */
 export function toStringList(arr) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  return arr.join(',');
 }
 
 
@@ -440,8 +461,27 @@ export function toStringList(arr) {
  *      { country: 'Russia',  city: 'Saint Petersburg' }
  */
 export function sortCitiesArray(arr) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  return arr.sort((a, b) => {
+    if (a.country < b.country) {
+      return -1;
+    }
+
+    if (a.country > b.country) {
+      return 1;
+    }
+
+    if (a.country === b.country) {
+      if (a.city < b.city) {
+        return -1;
+      }
+  
+      if (a.city > b.city) {
+        return 1;
+      }
+    }
+
+    /* Looks like it should be done easier, but just now I can't think of something better */
+  });
 }
 
 /**
@@ -463,8 +503,8 @@ export function sortCitiesArray(arr) {
  *           [0,0,0,0,1]]
  */
 export function getIdentityMatrix(n) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  let arr = new Array(n).fill(new Array(n).fill(0));
+  return arr.map((el, i) => el.map((elem, index) => index === i ? elem = 1 : elem));
 }
 
 /**
@@ -481,8 +521,8 @@ export function getIdentityMatrix(n) {
  *     3, 3   => [ 3 ]
  */
 export function getIntervalArray(start, end) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  let arr = new Array(end - start + 1).fill(start);
+  return arr.map((el, i) => el += i);
 }
 
 /**
@@ -497,8 +537,12 @@ export function getIntervalArray(start, end) {
  *   [ 1, 1, 2, 2, 3, 3, 4, 4] => [ 1, 2, 3, 4]
  */
 export function distinct(arr) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  return arr.reduce((result, el) => {
+    if (result.indexOf(el) < 0) {
+      result.push(el);
+    }
+    return result;
+  }, []);
 }
 
 /**
@@ -532,8 +576,14 @@ export function distinct(arr) {
  *   }
  */
 export function group(array, keySelector, valueSelector) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  const arr = array.reduce((result, el, i) => {
+    let key = keySelector(el);
+    let value = valueSelector(el);
+    result[key] = result[key] ? [...result[key], value] : [value];
+    return result;
+  }, {});
+
+  return new Map(Object.entries(arr));
 }
 
 
@@ -551,8 +601,7 @@ export function group(array, keySelector, valueSelector) {
  *   ['one','two','three'], x=>x.split('')  =>   ['o','n','e','t','w','o','t','h','r','e','e']
  */
 export function selectMany(arr, childrenSelector) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  return [].concat(...Array.from(arr, childrenSelector));
 }
 
 
@@ -569,8 +618,7 @@ export function selectMany(arr, childrenSelector) {
  *   [[[ 1, 2, 3]]], [ 0, 0, 1 ]      => 2        (arr[0][0][1])
  */
 export function getElementByIndexes(arr, indexes) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  return indexes.reduce((result, el) => result[el], arr);
 }
 
 
@@ -593,8 +641,10 @@ export function getElementByIndexes(arr, indexes) {
  *
  */
 export function swapHeadAndTail(arr) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  const centerIndex = Math.floor(arr.length / 2);
+  return arr.length % 2 === 0
+    ? [...arr.slice(centerIndex), ...arr.slice(0, centerIndex)]
+    : [...arr.slice(centerIndex + 1), ...arr.slice(centerIndex, centerIndex + 1), ...arr.slice(0, centerIndex)];
 }
 
 const tasks = {
