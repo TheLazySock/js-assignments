@@ -462,25 +462,9 @@ export function toStringList(arr) {
  */
 export function sortCitiesArray(arr) {
   return arr.sort((a, b) => {
-    if (a.country < b.country) {
-      return -1;
-    }
-
-    if (a.country > b.country) {
-      return 1;
-    }
-
-    if (a.country === b.country) {
-      if (a.city < b.city) {
-        return -1;
-      }
-  
-      if (a.city > b.city) {
-        return 1;
-      }
-    }
-
-    /* Looks like it should be done easier, but just now I can't think of something better */
+    return (a.country > b.country) - (a.country < b.country) !== 0
+      ? (a.country > b.country) - (a.country < b.country)
+      : (a.city > b.city) - (a.city < b.city);
   });
 }
 
@@ -503,8 +487,12 @@ export function sortCitiesArray(arr) {
  *           [0,0,0,0,1]]
  */
 export function getIdentityMatrix(n) {
-  let arr = new Array(n).fill(new Array(n).fill(0));
-  return arr.map((el, i) => el.map((elem, index) => index === i ? elem = 1 : elem));
+  let arr = new Array(n).fill([]);
+  return arr.reduce((result, el, i) => {
+    result[i] = new Array(n).fill(0);
+    result[i][i] = 1;
+    return result;
+  }, []);
 }
 
 /**
@@ -537,12 +525,7 @@ export function getIntervalArray(start, end) {
  *   [ 1, 1, 2, 2, 3, 3, 4, 4] => [ 1, 2, 3, 4]
  */
 export function distinct(arr) {
-  return arr.reduce((result, el) => {
-    if (result.indexOf(el) < 0) {
-      result.push(el);
-    }
-    return result;
-  }, []);
+  return arr.filter((el, i, array) => array.indexOf(el) === i);
 }
 
 /**
@@ -576,14 +559,12 @@ export function distinct(arr) {
  *   }
  */
 export function group(array, keySelector, valueSelector) {
-  const arr = array.reduce((result, el, i) => {
+  return array.reduce((result, el, i) => {
     let key = keySelector(el);
     let value = valueSelector(el);
-    result[key] = result[key] ? [...result[key], value] : [value];
+    result.set(key, [...result.get(key) || [], value]);
     return result;
-  }, {});
-
-  return new Map(Object.entries(arr));
+  }, new Map());
 }
 
 
@@ -641,6 +622,7 @@ export function getElementByIndexes(arr, indexes) {
  *
  */
 export function swapHeadAndTail(arr) {
+  /* MAKE IT EASIER */
   const centerIndex = Math.floor(arr.length / 2);
   return arr.length % 2 === 0
     ? [...arr.slice(centerIndex), ...arr.slice(0, centerIndex)]
