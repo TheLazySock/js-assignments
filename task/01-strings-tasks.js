@@ -199,19 +199,10 @@ export function extractEmails(str) {
  *
  */
 export function getRectangleString(width, height) {
-  let str = '';
-  for (let i = 0; i < height; i++) {
-    if (i === 0) {
-      str+='┌' + '─'.repeat(width - 2) + '┐' + '\n';
-    }
-    else if (i === (height - 1)) {
-      str += '└' + '─'.repeat(width - 2) + '┘' + '\n';
-    }
-    else {
-      str += '│' + ' '.repeat(width - 2) + '│' + '\n';
-    }
-  }
-  return str;
+  // return `┌${'─'.repeat(width - 2)}┐\n${('│'+' '.repeat(width - 2)+'│\n').repeat(height - 2)}└${'─'.repeat(width - 2)}┘\n`;
+  return '┌' + '─'.repeat(width - 2) + '┐\n'
+           + ('│' + ' '.repeat(width - 2) + '│\n').repeat(height - 2)
+           + '└' + '─'.repeat(width-2) + '┘\n';
 }
 
 
@@ -232,16 +223,7 @@ export function getRectangleString(width, height) {
  *
  */
 export function encodeToRot13(str) {
-  let alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-  let ROT13alphabet = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm';
-  return str.split('')
-    .map(el => {
-      let index = alphabet.indexOf(el);
-      return index > -1
-        ? ROT13alphabet[index]
-        : el;
-    })
-    .join('');
+  return str.replace( /[A-Za-z]/g, char => String.fromCharCode(char.charCodeAt(0) + (char.toUpperCase() < 'N' ? 13 : -13)));
 }
 
 /**
