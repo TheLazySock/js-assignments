@@ -462,9 +462,7 @@ export function toStringList(arr) {
  */
 export function sortCitiesArray(arr) {
   return arr.sort((a, b) => {
-    return (a.country > b.country) - (a.country < b.country) !== 0
-      ? (a.country > b.country) - (a.country < b.country)
-      : (a.city > b.city) - (a.city < b.city);
+    return (a.country > b.country) - (a.country < b.country) || (a.city > b.city) - (a.city < b.city);
   });
 }
 
@@ -622,11 +620,13 @@ export function getElementByIndexes(arr, indexes) {
  *
  */
 export function swapHeadAndTail(arr) {
-  /* MAKE IT EASIER */
-  const centerIndex = Math.floor(arr.length / 2);
-  return arr.length % 2 === 0
-    ? [...arr.slice(centerIndex), ...arr.slice(0, centerIndex)]
-    : [...arr.slice(centerIndex + 1), ...arr.slice(centerIndex, centerIndex + 1), ...arr.slice(0, centerIndex)];
+  // const centerIndex = Math.floor(arr.length / 2);
+  // return arr.length % 2 === 0
+  //   ? [...arr.slice(centerIndex), ...arr.slice(0, centerIndex)]
+  //   : [...arr.slice(centerIndex + 1), ...arr.slice(centerIndex, centerIndex + 1), ...arr.slice(0, centerIndex)];
+
+  arr.splice(0, arr.length, ...arr.slice(Math.round(arr.length / 2)), ...arr.slice(Math.floor(arr.length / 2), Math.round(arr.length / 2)), ...arr.slice(0, Math.floor(arr.length / 2)));
+  return arr;
 }
 
 const tasks = {
