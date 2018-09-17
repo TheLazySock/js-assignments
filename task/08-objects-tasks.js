@@ -22,10 +22,15 @@
  *    console.log(r.getArea());   // => 200
  */
 export function Rectangle(width, height) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  this.width = width;
+  this.height = height;
 }
 
+Rectangle.prototype = {
+  getArea: function () {
+    return this.width * this.height;
+  }
+};
 
 /**
  * Returns the JSON representation of specified object
@@ -38,8 +43,7 @@ export function Rectangle(width, height) {
  *    { width: 10, height : 20 } => '{"height":10,"width":20}'
  */
 export function getJSON(obj) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  return JSON.stringify(obj);
 }
 
 
@@ -55,8 +59,10 @@ export function getJSON(obj) {
  *
  */
 export function fromJSON(proto, json) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  let args = JSON.parse(json);
+  let obj = Object.create(proto);
+  var res = Object.assign(obj, args);
+  return res;
 }
 
 
@@ -116,39 +122,90 @@ export function fromJSON(proto, json) {
  */
 
 export const cssSelectorBuilder = {
+  str: '',
+  doublesArray: [],
+  orderArray: [],
 
   element(value) {
-    /* implement your code here */
-    throw new Error('Not implemented');
+    this.str += value;
+    this.doublesArray.push('element');
+    this.orderArray.push(1);
+    this.checkDoubles('element');
+    this.checkOrder();
+    return this.newObj(this);
   },
 
   id(value) {
-    /* implement your code here */
-    throw new Error('Not implemented');
+    this.str += `#${value}`;
+    this.doublesArray.push('id');
+    this.orderArray.push(2);
+    this.checkDoubles('id');
+    this.checkOrder();
+    return this.newObj(this);
   },
 
   class(value) {
-    /* implement your code here */
-    throw new Error('Not implemented');
+    this.str += `.${value}`;
+    this.orderArray.push(3);
+    this.checkOrder();
+    return this.newObj(this);
   },
 
   attr(value) {
-    /* implement your code here */
-    throw new Error('Not implemented');
+    this.str += `[${value}]`;
+    this.orderArray.push(4);
+    this.checkOrder();
+    return this.newObj(this);
   },
 
   pseudoClass(value) {
-    /* implement your code here */
-    throw new Error('Not implemented');
+    this.str += `:${value}`;
+    this.orderArray.push(5);
+    this.checkOrder();
+    return this.newObj(this);
   },
 
   pseudoElement(value) {
-    /* implement your code here */
-    throw new Error('Not implemented');
+    this.str += `::${value}`;
+    this.doublesArray.push('pseudo-elem');
+    this.orderArray.push(6);
+    this.checkDoubles('pseudo-elem');
+    this.checkOrder();
+    return this.newObj(this);
   },
 
   combine(selector1, combinator, selector2) {
-    /* implement your code here */
-    throw new Error('Not implemented');
+    this.str = selector1.str + ` ${combinator} ` + selector2.str;
+    return this.newObj(this);
+  },
+
+  stringify() {
+    let result = this.str;
+    this.str = '';
+    return result;
+  },
+
+  newObj(context) {
+    let obj = Object.assign({}, context);
+    context.str = '';
+    context.doublesArray = [];
+    context.orderArray = [];
+    return obj;
+  },
+
+  checkDoubles(element) {
+    if (this.doublesArray.indexOf(element) !== this.doublesArray.lastIndexOf(element)) {
+      throw new Error('Element, id and pseudo-element should not occur more then one time inside the selector');
+    }
+  },
+
+  checkOrder(element) {
+    let sortedArray = this.orderArray.slice().sort((a, b) => a - b);
+    sortedArray.forEach((el, i) => {
+      if (el !== this.orderArray[i]) {
+        throw new Error('Selector parts should be arranged in the following order: element, id, class, attribute, pseudo-class, pseudo-element');
+      }
+      return el;
+    });    
   }
 };
