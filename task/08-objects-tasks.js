@@ -21,14 +21,9 @@
  *    console.log(r.height);      // => 20
  *    console.log(r.getArea());   // => 200
  */
-<<<<<<< HEAD
-export function Rectangle(width, height) {
+function Rectangle(width, height) {
   this.width = width;
   this.height = height;
-=======
-function Rectangle(width, height) {
-  throw new Error('Not implemented');
->>>>>>> 778a5ea2dbb619ba7271ad97e9070ecbe6d94fb5
 }
 
 Rectangle.prototype = {
@@ -47,13 +42,8 @@ Rectangle.prototype = {
  *    [1,2,3]   =>  '[1,2,3]'
  *    { width: 10, height : 20 } => '{"height":10,"width":20}'
  */
-<<<<<<< HEAD
-export function getJSON(obj) {
-  return JSON.stringify(obj);
-=======
 function getJSON(obj) {
-  throw new Error('Not implemented');
->>>>>>> 778a5ea2dbb619ba7271ad97e9070ecbe6d94fb5
+  return JSON.stringify(obj);
 }
 
 
@@ -68,16 +58,8 @@ function getJSON(obj) {
  *    var r = fromJSON(Rectangle.prototype, '{"width":10, "height":20}');
  *
  */
-<<<<<<< HEAD
-export function fromJSON(proto, json) {
-  const args = JSON.parse(json);
-  const obj = Object.create(proto);
-  var res = Object.assign(obj, args);
-  return res;
-=======
 function fromJSON(proto, json) {
-  throw new Error('Not implemented');
->>>>>>> 778a5ea2dbb619ba7271ad97e9070ecbe6d94fb5
+  return Object.assign(Object.create(proto), JSON.parse(json));
 }
 
 
@@ -136,14 +118,10 @@ function fromJSON(proto, json) {
  *  For more examples see unit tests.
  */
 
-<<<<<<< HEAD
-export const cssSelectorBuilder = {
+const cssSelectorBuilder = {
   str: '',
   doublesArray: [],
   orderArray: [],
-=======
-const cssSelectorBuilder = {
->>>>>>> 778a5ea2dbb619ba7271ad97e9070ecbe6d94fb5
 
   element(value) {
     this.str += value;
@@ -213,8 +191,10 @@ const cssSelectorBuilder = {
   },
 
   checkDoubles(element) {
-    if (this.doublesArray.indexOf(element) !== this.doublesArray.lastIndexOf(element)) {
-      throw new Error('Element, id and pseudo-element should not occur more then one time inside the selector');
+    const arr = this.doublesArray;
+    if (arr.indexOf(element) !== arr.lastIndexOf(element)) {
+      throw new Error('Element, id and pseudo-element should not occur ' + 
+        'more then one time inside the selector');
     }
   },
 
@@ -222,14 +202,12 @@ const cssSelectorBuilder = {
     const sortedArray = this.orderArray.slice().sort((a, b) => a - b);
     sortedArray.forEach((el, i) => {
       if (el !== this.orderArray[i]) {
-        throw new Error('Selector parts should be arranged in the following order: element, id, class, attribute, pseudo-class, pseudo-element');
+        throw new Error('Selector parts should be arranged in the following ' + 
+          'order: element, id, class, attribute, pseudo-class, pseudo-element');
       }
       return el;
     });    
   }
-<<<<<<< HEAD
-};
-=======
 };
 
 module.exports = {
@@ -238,4 +216,3 @@ module.exports = {
   fromJSON: fromJSON,
   cssSelectorBuilder: cssSelectorBuilder
 };
->>>>>>> 778a5ea2dbb619ba7271ad97e9070ecbe6d94fb5

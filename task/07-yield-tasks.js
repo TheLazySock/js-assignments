@@ -31,21 +31,21 @@
  * @return {Iterable.<string>}
  *
  */
-<<<<<<< HEAD
-export function* get99BottlesOfBeer() {
+function* get99BottlesOfBeer() {
   let bottles = 99;
   while (bottles >= 1) {
-    yield `${bottles} bottle${bottles !== 1 ? 's' : ''} of beer on the wall, ${bottles} bottle${bottles !== 1 ? 's' : ''} of beer.`;
-    yield `Take one down and pass it around, ${--bottles === 0 ? 'no more bottles' : bottles !== 1 ? bottles + ' bottles' : bottles + ' bottle'} of beer on the wall.`;
+    yield `${bottles} bottle${bottles !== 1 ? 's' : ''} of beer on the` + 
+      ` wall, ${bottles} bottle${bottles !== 1 ? 's' : ''} of beer.`;
+    yield `Take one down and pass it around, ${--bottles === 0
+      ? 'no more bottles'
+      : bottles !== 1 ? bottles + ' bottles' : bottles + ' bottle'} of` + 
+        ` beer on the wall.`;
   }
   if (bottles === 0) {
     yield 'No more bottles of beer on the wall, no more bottles of beer.';
-    yield `Go to the store and buy some more, ${bottles = 99} bottles of beer on the wall.`;
+    yield `Go to the store and buy some more, ${bottles = 99}` + 
+      ` bottles of beer on the wall.`;
   }
-=======
-function* get99BottlesOfBeer() {
-  throw new Error('Not implemented');
->>>>>>> 778a5ea2dbb619ba7271ad97e9070ecbe6d94fb5
 }
 
 
@@ -58,8 +58,7 @@ function* get99BottlesOfBeer() {
  * @return {Iterable.<number>}
  *
  */
-<<<<<<< HEAD
-export function* getFibonacciSequence() {
+function* getFibonacciSequence() {
   let fn1 = 0;
   let fn2 = 1;
   yield fn1;
@@ -70,10 +69,6 @@ export function* getFibonacciSequence() {
     fn2 = fn;
     yield fn;
   }
-=======
-function* getFibonacciSequence() {
-  throw new Error('Not implemented');
->>>>>>> 778a5ea2dbb619ba7271ad97e9070ecbe6d94fb5
 }
 
 
@@ -107,8 +102,7 @@ function* getFibonacciSequence() {
  *  depthTraversalTree(node1) => node1, node2, node3, node4, node5, node6, node7, node8
  *
  */
-<<<<<<< HEAD
-export function* depthTraversalTree(root) {
+function* depthTraversalTree(root) {
   yield root;
   const arr = [{ obj: root, discover: false }];
   let j = 0;
@@ -133,10 +127,6 @@ export function* depthTraversalTree(root) {
       }
     }
   }
-=======
-function* depthTraversalTree(root) {
-  throw new Error('Not implemented');
->>>>>>> 778a5ea2dbb619ba7271ad97e9070ecbe6d94fb5
 }
 
 
@@ -161,8 +151,7 @@ function* depthTraversalTree(root) {
  *           8
  *
  */
-<<<<<<< HEAD
-export function* breadthTraversalTree(root) {
+function* breadthTraversalTree(root) {
   let arr = [root];
   while (arr.length > 0) {
     const tempArr = [];
@@ -176,10 +165,6 @@ export function* breadthTraversalTree(root) {
     }
     arr = tempArr;
   }
-=======
-function* breadthTraversalTree(root) {
-  throw new Error('Not implemented');
->>>>>>> 778a5ea2dbb619ba7271ad97e9070ecbe6d94fb5
 }
 
 
@@ -196,8 +181,7 @@ function* breadthTraversalTree(root) {
  *   [ 0 ], [ 2, 4, 6, ... ]  => [ 0, 2, 4, 6, ... ]
  *   [ 1, 3, 5, ... ], [ -1 ] => [ -1, 1, 3, 5, ...]
  */
-<<<<<<< HEAD
-export function* mergeSortedSequences(source1, source2) {
+function* mergeSortedSequences(source1, source2) {
   const iter1 = source1();
   const iter2 = source2();
   let n1 = iter1.next();
@@ -222,10 +206,6 @@ export function* mergeSortedSequences(source1, source2) {
       }
     }
   }
-=======
-function* mergeSortedSequences(source1, source2) {
-  throw new Error('Not implemented');
->>>>>>> 778a5ea2dbb619ba7271ad97e9070ecbe6d94fb5
 }
 
 module.exports = {
