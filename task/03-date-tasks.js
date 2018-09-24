@@ -21,8 +21,7 @@
  *    'Sun, 17 May 1998 03:00:00 GMT+01' => Date()
  */
 export function parseDataFromRfc2822(value) {
-  const date = new Date(value).toUTCString();
-  return Date.parse(date);
+  return Date.parse(value);
 }
 
 /**

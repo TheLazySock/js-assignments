@@ -177,7 +177,7 @@ export function isInsideCircle(circle, point) {
  *   'entente' => null
  */
 export function findFirstSingleChar(str) {
-  for (let symbol of str) {
+  for (const symbol of str) {
     if (str.indexOf(symbol) === str.lastIndexOf(symbol)) {
       return symbol;
     }
@@ -291,7 +291,7 @@ export function isCreditCardNumber(ccn) {
  *   165536 (1+6+5+5+3+6 = 26,  2+6 = 8) => 8
  */
 export function getDigitalRoot(num) {
-  let sum = num.toString().split('').reduce((result, el) => result += +el, 0);
+  const sum = num.toString().split('').reduce((result, el) => result += +el, 0);
   return sum > 9 ? getDigitalRoot(sum) : sum;
 }
 
@@ -318,22 +318,16 @@ export function getDigitalRoot(num) {
  *   '{[(<{[]}>)]}' = true
  */
 export function isBracketsBalanced(str) {
-  let stack = [];
-  let openingBrackets = ['[', '{', '(', '<'];
-  let closingBrackets = [']', '}', ')', '>'];
+  const stack = [];
+  const brackets = { '[': ']', '{': '}', '(': ')', '<': '>' };
   for (let i = 0; i < str.length; i++) {
-    let elem = str[i];
-    if (closingBrackets.indexOf(elem) > -1) {
-      let matchingOpeningBracket = openingBrackets[closingBrackets.indexOf(elem)];
-      if (stack.length === 0 || (stack.pop() !== matchingOpeningBracket)) {
-        return false;
-      }
+    if (brackets[stack[stack.length - 1]] === str[i]) {
+      stack.pop();
     } else {
-      stack.push(elem);
+      stack.push(str[i]);
     }
   }
-
-  return (stack.length === 0);
+  return !stack.length;
 }
 
 
@@ -369,40 +363,41 @@ export function isBracketsBalanced(str) {
  *
  */
 export function timespanToHumanString(startDate, endDate) {
-  let diff = (endDate.getTime() - startDate.getTime()) / 1000;
-  if (diff > 0 && diff <= 45) {
-    return 'a few seconds ago';
-  }
-  if (diff > 45 && diff <= 90) {
-    return 'a minute ago';
-  }
-  if (diff > 90 && diff <= 2700) {
-    return diff <= 120 ? '2 minutes ago' : `${Math.floor(diff / 60)} minutes ago`;
-  }
-  if (diff > 2700 && diff <= 5400) {
-    return 'an hour ago';
-  }
-  if ((diff / 3600 > 5400 / 3600) && (diff / 3600 <= 22)) {
-    return diff / 60 <= 120 ? '2 hours ago' : `${Math.round((diff - 0.0001) / 3600)} hours ago`;
-  }
-  if ((diff / 3600 > 22) && (diff / 3600 <= 36)) {
-    return 'a day ago';
-  }
-  if ((diff / 3600 > 36) && (diff / (3600 * 24) <= 25)) {
-    return diff / 3600 <= 72 ? '2 days ago' : `${Math.round((diff - 0.0001) / (3600 * 24))} days ago`;
-  }
-  if ((diff / (3600 * 24)) > 25 && ((diff / (3600 * 24)) <= 45)) {
-    return 'a month ago';
-  }
-  if ((diff / (3600 * 24)) > 45 && (diff / (3600 * 24) <= 345)) {
-    return diff / (3600 * 24) <= 60 ? '2 months ago' : `${Math.round(diff / (3600 * 24 * 30))} months ago`;
-  }
-  if (((diff / (3600 * 24)) > 345 && ((diff / (3600 * 24)) <= 545))) {
-    return 'a year ago';
-  }
-  if (diff / (3600 * 24) >= 546) {
-    return diff / (3600 * 24) <= 730 ? '2 years ago' : `${Math.round(diff / (3600 * 24 * 365))} years ago`;
-  }
+  // const diff = (endDate.getTime() - startDate.getTime()) / 1000;
+  // if (diff > 0 && diff <= 45) {
+  //   return 'a few seconds ago';
+  // }
+  // if (diff > 45 && diff <= 90) {
+  //   return 'a minute ago';
+  // }
+  // if (diff > 90 && diff <= 2700) {
+  //   return diff <= 120 ? '2 minutes ago' : `${Math.floor(diff / 60)} minutes ago`;
+  // }
+  // if (diff > 2700 && diff <= 5400) {
+  //   return 'an hour ago';
+  // }
+  // if ((diff / 3600 > 5400 / 3600) && (diff / 3600 <= 22)) {
+  //   return diff / 60 <= 120 ? '2 hours ago' : `${Math.round((diff - 0.0001) / 3600)} hours ago`;
+  // }
+  // if ((diff / 3600 > 22) && (diff / 3600 <= 36)) {
+  //   return 'a day ago';
+  // }
+  // if ((diff / 3600 > 36) && (diff / (3600 * 24) <= 25)) {
+  //   return diff / 3600 <= 72 ? '2 days ago' : `${Math.round((diff - 0.0001) / (3600 * 24))} days ago`;
+  // }
+  // if ((diff / (3600 * 24)) > 25 && ((diff / (3600 * 24)) <= 45)) {
+  //   return 'a month ago';
+  // }
+  // if ((diff / (3600 * 24)) > 45 && (diff / (3600 * 24) <= 345)) {
+  //   return diff / (3600 * 24) <= 60 ? '2 months ago' : `${Math.round(diff / (3600 * 24 * 30))} months ago`;
+  // }
+  // if (((diff / (3600 * 24)) > 345 && ((diff / (3600 * 24)) <= 545))) {
+  //   return 'a year ago';
+  // }
+  // if (diff / (3600 * 24) >= 546) {
+  //   return diff / (3600 * 24) <= 730 ? '2 years ago' : `${Math.round(diff / (3600 * 24 * 365))} years ago`;
+  // }
+  throw new Error('Not implemented');
 }
 
 
@@ -445,11 +440,11 @@ export function toNaryString(num, n) {
  */
 export function getCommonDirectoryPath(pathes) {
   let temp = [];
-  let arr = pathes.slice();
+  const arr = pathes.slice();
   arr.reduce((result, el) => {
-    let a = el.split('/');
+    const a = el.split('/');
     if (result) {
-      let b = result.split('/');
+      const b = result.split('/');
       temp = b.slice();
     }
     temp = a.map((elem, i) => {
@@ -482,30 +477,32 @@ export function getCommonDirectoryPath(pathes) {
  *                         [ 6 ]]
  *
  */
+
+/**
+ *     ┌                    ┐        ┌                    ┐
+ *     | a11, a12, ..., a1m |        | b11, b12, ..., b1n |
+ * A = | a21, a22, ..., a2m |    B = | b21, b22, ..., b2n |
+ *     |  ⋮     ⋮    ⋮     ⋮  |        |  ⋮     ⋮    ⋮    ⋮   |
+ *     | al1, al2, ..., alm |        | bm1, bm2, ..., bmn |
+ *     └                    ┘        └                    ┘
+ *     ┌                    ┐ 
+ *     | c11, c12, ..., c1n | 
+ * C = | c21, c22, ..., c2n | 
+ *     |  ⋮     ⋮    ⋮     ⋮  | 
+ *     | cl1, cl2, ..., cln | 
+ *     └                    ┘ 
+ * cij = Σ(r = 1, m) air brj (i = 1, 2, ..., l; j = 1, 2, ..., n) 
+ */
+
 export function getMatrixProduct(m1, m2) {
-  /**
-   *     ┌                    ┐        ┌                    ┐
-   *     | a11, a12, ..., a1m |        | b11, b12, ..., b1n |
-   * A = | a21, a22, ..., a2m |    B = | b21, b22, ..., b2n |
-   *     |  ⋮     ⋮    ⋮     ⋮  |        |  ⋮     ⋮    ⋮    ⋮   |
-   *     | al1, al2, ..., alm |        | bm1, bm2, ..., bmn |
-   *     └                    ┘        └                    ┘
-   *     ┌                    ┐ 
-   *     | c11, c12, ..., c1n | 
-   * C = | c21, c22, ..., c2n | 
-   *     |  ⋮     ⋮    ⋮     ⋮  | 
-   *     | cl1, cl2, ..., cln | 
-   *     └                    ┘ 
-   * cij = Σ(r = 1, m) air brj (i = 1, 2, ..., l; j = 1, 2, ..., n) 
-   */
-  const m = m1[0].length;
-  const matrixWidth = m2[0].length;
-  const matrixHeight = m1.length;
-  let resultMatrix = new Array(matrixHeight).fill(new Array(matrixWidth).fill(0));
+  const resultMatrix = new Array(m1.length)
+    .fill(new Array(m2[0].length)
+      .fill(0)
+    );
   return resultMatrix.map((el, i) => {
     return el.map((elem, j) => {
       let c = 0;
-      for (let k = 0; k < m; k++) {
+      for (let k = 0; k < m1[0].length; k++) {
         c += m1[i][k] * m2[k][j];
       }
       return c;
@@ -545,7 +542,7 @@ export function getMatrixProduct(m1, m2) {
  *
  */
 export function evaluateTicTacToePosition(position) {
-  let board = [];
+  const board = [];
   for (let i = 0; i < 3; i++) {
     for (let j = 0; j < 3; j++) {
       board[board.length] = position[i][j];

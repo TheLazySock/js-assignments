@@ -59,8 +59,8 @@ export function getJSON(obj) {
  *
  */
 export function fromJSON(proto, json) {
-  let args = JSON.parse(json);
-  let obj = Object.create(proto);
+  const args = JSON.parse(json);
+  const obj = Object.create(proto);
   var res = Object.assign(obj, args);
   return res;
 }
@@ -180,13 +180,13 @@ export const cssSelectorBuilder = {
   },
 
   stringify() {
-    let result = this.str;
+    const result = this.str;
     this.str = '';
     return result;
   },
 
   newObj(context) {
-    let obj = Object.assign({}, context);
+    const obj = Object.assign({}, context);
     context.str = '';
     context.doublesArray = [];
     context.orderArray = [];
@@ -200,7 +200,7 @@ export const cssSelectorBuilder = {
   },
 
   checkOrder(element) {
-    let sortedArray = this.orderArray.slice().sort((a, b) => a - b);
+    const sortedArray = this.orderArray.slice().sort((a, b) => a - b);
     sortedArray.forEach((el, i) => {
       if (el !== this.orderArray[i]) {
         throw new Error('Selector parts should be arranged in the following order: element, id, class, attribute, pseudo-class, pseudo-element');

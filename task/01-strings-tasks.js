@@ -222,7 +222,11 @@ export function getRectangleString(width, height) {
  *
  */
 export function encodeToRot13(str) {
-  return str.replace( /[A-Za-z]/g, char => String.fromCharCode(char.charCodeAt(0) + (char.toUpperCase() < 'N' ? 13 : -13)));
+  return str.replace( /[A-Za-z]/g, char => {
+    return String.fromCharCode(char.charCodeAt(0) + (char.toUpperCase() < 'N'
+      ? 13
+      : -13));
+  });
 }
 
 /**
@@ -268,14 +272,22 @@ export function isString(value) {
  *   'K♠' => 51
  */
 export function getCardId(value) {
-  const cardsSuits = {
-    '♣': 0,
-    '♦': 13,
-    '♥': 26,
-    '♠': 39
-  };
-  const cardsValues = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
-  const currentCardSuit = value.substr(-1, 1);
-  const currentCardValue = value.slice(0, -1);
-  return cardsSuits[currentCardSuit] + cardsValues.indexOf(currentCardValue);
+  const cardsSuits = { '♣': 0, '♦': 13, '♥': 26, '♠': 39 };
+  const cardsValues = [
+    'A',
+    '2',
+    '3',
+    '4',
+    '5',
+    '6',
+    '7',
+    '8',
+    '9',
+    '10',
+    'J',
+    'Q',
+    'K'
+  ];
+  return cardsSuits[value.substr(-1, 1)]
+    + cardsValues.indexOf(value.match(/\w/g).join(''));
 }

@@ -59,7 +59,7 @@ export function* getFibonacciSequence() {
   yield fn1;
   yield fn2;
   while (true) {
-    let fn = fn1 + fn2;
+    const fn = fn1 + fn2;
     fn1 = fn2;
     fn2 = fn;
     yield fn;
@@ -99,16 +99,16 @@ export function* getFibonacciSequence() {
  */
 export function* depthTraversalTree(root) {
   yield root;
-  let arr = [{ obj: root, discover: false }];
+  const arr = [{ obj: root, discover: false }];
   let j = 0;
   while (arr.length > 0) {
     j++;
-    let v = arr.pop();
+    const v = arr.pop();
     if (!v.discover) {
       v.discover = true;
       if (v.obj.children) {
         for (let i = v.obj.children.length - 1; i >= 0; i--) {
-          let temp = {
+          const temp = {
             obj: v.obj.children[i],
             discover: false
           };
@@ -149,8 +149,8 @@ export function* depthTraversalTree(root) {
 export function* breadthTraversalTree(root) {
   let arr = [root];
   while (arr.length > 0) {
-    let tempArr = [];
-    for (let key of arr) {
+    const tempArr = [];
+    for (const key of arr) {
       yield key;
       if (key.children) {
         key.children.forEach(el => {
@@ -177,8 +177,8 @@ export function* breadthTraversalTree(root) {
  *   [ 1, 3, 5, ... ], [ -1 ] => [ -1, 1, 3, 5, ...]
  */
 export function* mergeSortedSequences(source1, source2) {
-  let iter1 = source1();
-  let iter2 = source2();
+  const iter1 = source1();
+  const iter2 = source2();
   let n1 = iter1.next();
   let n2 = iter2.next();
   while (true) {

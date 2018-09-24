@@ -111,9 +111,8 @@ export function getLinearEquationRoot(a, b) {
  *   (0,1) (1,2)     => 0
  */
 export function getAngleBetweenVectors(x1, y1, x2, y2) {
-  const scalarProduct = x1 * x2 + y1 * y2;
-  const vectorModulus = (x, y) => Math.hypot(x, y);
-  return Math.acos(scalarProduct / (vectorModulus(x1, y1) * vectorModulus(x2, y2)));
+  return Math.acos(x1 * x2 + y1 * y2
+    / (Math.hypot(x1, y1) * Math.hypot(x2, y2)));
 }
 
 /**
@@ -129,8 +128,7 @@ export function getAngleBetweenVectors(x1, y1, x2, y2) {
  *     0     => 0
  */
 export function getLastDigit(value) {
-  let str = value.toString();
-  return +str[str.length - 1];
+  return value % 10;
 }
 
 
@@ -184,7 +182,7 @@ export function getParallelipidedDiagonal(a, b, c) {
  *   1678, 3  => 2000
  */
 export function roundToPowerOfTen(num, pow) {
-  let accuracy = Math.pow(10, pow);
+  const accuracy = Math.pow(10, pow);
   return Math.round(num / accuracy) * accuracy;
 }
 

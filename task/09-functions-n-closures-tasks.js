@@ -89,7 +89,7 @@ export function getPolynom() {
  *   memoizer() => the same random number  (next run, returns the previous cached result)
  */
 export function memoize(func) {
-  let obj = {};
+  const obj = {};
   Object.defineProperty(obj, 'prop', {
     value: func()
   });
@@ -151,9 +151,9 @@ export function retry(func, attempts) {
  */
 export function logger(func, logFunc) {
   return (...args) => {
-    let argsString = JSON.stringify(args);
+    const argsString = JSON.stringify(args);
     logFunc(`${func.name}(${argsString.slice(1, -1)}) starts`);
-    let result = func(...args);
+    const result = func(...args);
     logFunc(`${func.name}(${argsString.slice(1, -1)}) ends`);
     return result;
   };
@@ -174,9 +174,9 @@ export function logger(func, logFunc) {
  *   partialUsingArguments(fn, 'a','b','c','d')() => 'abcd'
  */
 export function partialUsingArguments(fn) {
-  let args1 = Array.from(arguments).slice(1);
+  const args1 = Array.from(arguments).slice(1);
   return (...args2) => {
-    let result = args1.concat(args2);
+    const result = args1.concat(args2);
     return fn(...result);
   };
 }
