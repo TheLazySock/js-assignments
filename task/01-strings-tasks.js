@@ -271,11 +271,11 @@ function isString(value) {
  *   'Q♠' => 50
  *   'K♠' => 51
  */
+
 function getCardId(value) {
-  // const cardsSuits = ['♣', '♦', '♥', '♠'];
-  // const cardsValues = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
-  // return cardsSuits.indexOf(value.substr(-1, 1)) * 13 + cardsValues.indexOf(value.slice(0, -1));
-  throw new Error('Not implemented');
+  const v = 'A234567891JQK';
+  const s = '♣♦♥♠';
+  return (s.indexOf(value.slice(-1)) * 13) + (v.indexOf(value.slice(0, 1)));
 }
 
 module.exports = {
