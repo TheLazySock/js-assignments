@@ -325,21 +325,8 @@ function getPositivesCount(arr) {
  *   [ 'one','one','one','zero' ]     => [ 'zero','one','one','one' ]
  */
 function sortDigitNamesByNumericOrder(arr) {
-  // const digitNames = [
-  //   'zero',
-  //   'one',
-  //   'two',
-  //   'three',
-  //   'four',
-  //   'five',
-  //   'six',
-  //   'seven',
-  //   'eight',
-  //   'nine'
-  // ];
-  // return arr.map(el => digitNames.indexOf(el))
-  //   .sort((a, b) => a - b).map(el => digitNames[el]);
-  throw new Error('Not implemented');
+  const digitNames = 'zero one two three four five six seven eight nine';
+  return arr.sort((a, b) => digitNames.indexOf(a) - digitNames.indexOf(b));
 }
 
 /**
