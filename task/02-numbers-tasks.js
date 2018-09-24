@@ -72,7 +72,6 @@ export function getAverage(value1, value2) {
  *   (-5,0) (10,-10) => 18.027756377319946
  */
 export function getDistanceBetweenPoints(x1, y1, x2, y2) {
-  // return Math.pow(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2), 1/2);
   return Math.hypot(x2 - x1, y2 - y1);
 }
 
