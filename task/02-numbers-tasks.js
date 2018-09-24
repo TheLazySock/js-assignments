@@ -20,8 +20,13 @@
  *   5, 10 => 50
  *   5, 5  => 25
  */
+<<<<<<< HEAD
 export function getRectangleArea(width, height) {
   return width * height;
+=======
+function getRectangleArea(width, height) {
+  throw new Error('Not implemented');
+>>>>>>> 778a5ea2dbb619ba7271ad97e9070ecbe6d94fb5
 }
 
 
@@ -36,8 +41,13 @@ export function getRectangleArea(width, height) {
  *   3.14 => 19.729201864543903
  *   0    => 0
  */
+<<<<<<< HEAD
 export function getCicleCircumference(radius) {
   return 2 * Math.PI * radius;
+=======
+function getCicleCircumference(radius) {
+  throw new Error('Not implemented');
+>>>>>>> 778a5ea2dbb619ba7271ad97e9070ecbe6d94fb5
 }
 
 /**
@@ -52,8 +62,13 @@ export function getCicleCircumference(radius) {
  *  10, 0  => 5
  *  -3, 3  => 0
  */
+<<<<<<< HEAD
 export function getAverage(value1, value2) {
   return value1 / 2 + value2 / 2;
+=======
+function getAverage(value1, value2) {
+  throw new Error('Not implemented');
+>>>>>>> 778a5ea2dbb619ba7271ad97e9070ecbe6d94fb5
 }
 
 /**
@@ -71,8 +86,13 @@ export function getAverage(value1, value2) {
  *   (0,0) (1,0)    => 1
  *   (-5,0) (10,-10) => 18.027756377319946
  */
+<<<<<<< HEAD
 export function getDistanceBetweenPoints(x1, y1, x2, y2) {
   return Math.hypot(x2 - x1, y2 - y1);
+=======
+function getDistanceBetweenPoints(x1, y1, x2, y2) {
+  throw new Error('Not implemented');
+>>>>>>> 778a5ea2dbb619ba7271ad97e9070ecbe6d94fb5
 }
 
 /**
@@ -87,8 +107,13 @@ export function getDistanceBetweenPoints(x1, y1, x2, y2) {
  *   x + 8 = 0       => -8
  *   5*x = 0         => 0
  */
+<<<<<<< HEAD
 export function getLinearEquationRoot(a, b) {
   return -b / a;
+=======
+function getLinearEquationRoot(a, b) {
+  throw new Error('Not implemented');
+>>>>>>> 778a5ea2dbb619ba7271ad97e9070ecbe6d94fb5
 }
 
 
@@ -110,9 +135,14 @@ export function getLinearEquationRoot(a, b) {
  *   (0,1) (0,1)     => 0
  *   (0,1) (1,2)     => 0
  */
+<<<<<<< HEAD
 export function getAngleBetweenVectors(x1, y1, x2, y2) {
   return Math.acos(x1 * x2 + y1 * y2
     / (Math.hypot(x1, y1) * Math.hypot(x2, y2)));
+=======
+function getAngleBetweenVectors(x1, y1, x2, y2) {
+  throw new Error('Not implemented');
+>>>>>>> 778a5ea2dbb619ba7271ad97e9070ecbe6d94fb5
 }
 
 /**
@@ -127,8 +157,13 @@ export function getAngleBetweenVectors(x1, y1, x2, y2) {
  *     5     => 5
  *     0     => 0
  */
+<<<<<<< HEAD
 export function getLastDigit(value) {
   return value % 10;
+=======
+function getLastDigit(value) {
+  throw new Error('Not implemented');
+>>>>>>> 778a5ea2dbb619ba7271ad97e9070ecbe6d94fb5
 }
 
 
@@ -143,8 +178,13 @@ export function getLastDigit(value) {
  *     '37'     => 37
  * '-525.5'     => -525.5
  */
+<<<<<<< HEAD
 export function parseNumberFromString(value) {
   return +value;
+=======
+function parseNumberFromString(value) {
+  throw new Error('Not implemented');
+>>>>>>> 778a5ea2dbb619ba7271ad97e9070ecbe6d94fb5
 }
 
 /**
@@ -160,8 +200,13 @@ export function parseNumberFromString(value) {
  *   3,3,3   => 5.196152422706632
  *   1,2,3   => 3.741657386773941
  */
+<<<<<<< HEAD
 export function getParallelipidedDiagonal(a, b, c) {
   return Math.hypot(a, b, c);
+=======
+function getParallelipidedDiagonal(a, b, c) {
+  throw new Error('Not implemented');
+>>>>>>> 778a5ea2dbb619ba7271ad97e9070ecbe6d94fb5
 }
 
 /**
@@ -181,9 +226,14 @@ export function getParallelipidedDiagonal(a, b, c) {
  *   1678, 2  => 1700
  *   1678, 3  => 2000
  */
+<<<<<<< HEAD
 export function roundToPowerOfTen(num, pow) {
   const accuracy = Math.pow(10, pow);
   return Math.round(num / accuracy) * accuracy;
+=======
+function roundToPowerOfTen(num, pow) {
+  throw new Error('Not implemented');
+>>>>>>> 778a5ea2dbb619ba7271ad97e9070ecbe6d94fb5
 }
 
 /**
@@ -203,11 +253,16 @@ export function roundToPowerOfTen(num, pow) {
  *   16 => false
  *   17 => true
  */
+<<<<<<< HEAD
 export function isPrime(n) {
   for (let i = 2; i < n; i++) {
     if (n % i === 0) return false;
   }
   return n !== 1;
+=======
+function isPrime(n) {
+  throw new Error('Not implemented');
+>>>>>>> 778a5ea2dbb619ba7271ad97e9070ecbe6d94fb5
 }
 
 /**
@@ -225,6 +280,26 @@ export function isPrime(n) {
  *   toNumber(42, 0) => 42
  *   toNumber(new Number(42), 0) => 42
  */
+<<<<<<< HEAD
 export function toNumber(value, def) {
   return !isNaN(+value) ? +value : def;
+=======
+function toNumber(value, def) {
+  throw new Error('Not implemented');
+>>>>>>> 778a5ea2dbb619ba7271ad97e9070ecbe6d94fb5
 }
+
+module.exports = {
+  getRectangleArea: getRectangleArea,
+  getCicleCircumference: getCicleCircumference,
+  getAverage: getAverage,
+  getDistanceBetweenPoints: getDistanceBetweenPoints,
+  getLinearEquationRoot: getLinearEquationRoot,
+  getAngleBetweenVectors: getAngleBetweenVectors,
+  getLastDigit: getLastDigit,
+  parseNumberFromString: parseNumberFromString,
+  getParallelipidedDiagonal: getParallelipidedDiagonal,
+  roundToPowerOfTen: roundToPowerOfTen,
+  isPrime: isPrime,
+  toNumber: toNumber
+};

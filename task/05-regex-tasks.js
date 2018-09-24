@@ -29,8 +29,13 @@
  *
  * @return {RegExp}
  */
+<<<<<<< HEAD
 export function getRegexForGuid() {
   return /{[A-F0-9]{8}-([A-F0-9]{4}-){3}[A-F0-9]{12}}/i;
+=======
+function getRegexForGuid() {
+  throw new Error('Not implemented');
+>>>>>>> 778a5ea2dbb619ba7271ad97e9070ecbe6d94fb5
 }
 
 
@@ -51,8 +56,13 @@ export function getRegexForGuid() {
  * @return {RegExp}
  *
  */
+<<<<<<< HEAD
 export function getRegexForPitSpot() {
   return /p.t/;
+=======
+function getRegexForPitSpot() {
+  throw new Error('Not implemented');
+>>>>>>> 778a5ea2dbb619ba7271ad97e9070ecbe6d94fb5
 }
 
 
@@ -70,8 +80,13 @@ export function getRegexForPitSpot() {
  *
  * @return {RegExp}
  */
+<<<<<<< HEAD
 export function getRegexForIPv4() {
   return /((^[0-2]\d\d)|(^\d\d?))((\.\d\d?)|(\.[0-2]\d\d)){3}$/;
+=======
+function getRegexForIPv4() {
+  throw new Error('Not implemented');
+>>>>>>> 778a5ea2dbb619ba7271ad97e9070ecbe6d94fb5
 }
 
 
@@ -89,8 +104,13 @@ export function getRegexForIPv4() {
  *                                   '0S4-H1-HACK'
  * @return {RegExp}
  */
+<<<<<<< HEAD
 export function getRegexForSSN() {
   return /^(?!000)\d{3}-(?!00)\d{2}-(?!0000)\d{4}$/;
+=======
+function getRegexForSSN() {
+  throw new Error('Not implemented');
+>>>>>>> 778a5ea2dbb619ba7271ad97e9070ecbe6d94fb5
 }
 
 
@@ -114,8 +134,21 @@ export function getRegexForSSN() {
  *   'PASSW0RD'.match(validator)  => false
  *   'Pa55'.match(validator) => false
  */
+<<<<<<< HEAD
 export function getPasswordValidator(minLength) {
   return new RegExp(
     `^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{${minLength},}$`
   );
+=======
+function getPasswordValidator(minLength) {
+  throw new Error('Not implemented');
+>>>>>>> 778a5ea2dbb619ba7271ad97e9070ecbe6d94fb5
 }
+
+module.exports = {
+  getRegexForGuid: getRegexForGuid,
+  getRegexForPitSpot: getRegexForPitSpot,
+  getRegexForIPv4: getRegexForIPv4,
+  getRegexForSSN: getRegexForSSN,
+  getPasswordValidator: getPasswordValidator
+};

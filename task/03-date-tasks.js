@@ -20,8 +20,13 @@
  *    'Tue, 26 Jan 2016 13:48:02 GMT' => Date()
  *    'Sun, 17 May 1998 03:00:00 GMT+01' => Date()
  */
+<<<<<<< HEAD
 export function parseDataFromRfc2822(value) {
   return Date.parse(value);
+=======
+function parseDataFromRfc2822(value) {
+  throw new Error('Not implemented');
+>>>>>>> 778a5ea2dbb619ba7271ad97e9070ecbe6d94fb5
 }
 
 /**
@@ -35,8 +40,13 @@ export function parseDataFromRfc2822(value) {
  *    '2016-01-19T16:07:37+00:00'    => Date()
  *    '2016-01-19T08:07:37Z' => Date()
  */
+<<<<<<< HEAD
 export function parseDataFromIso8601(value) {
   return Date.parse(value);
+=======
+function parseDataFromIso8601(value) {
+  throw new Error('Not implemented');
+>>>>>>> 778a5ea2dbb619ba7271ad97e9070ecbe6d94fb5
 }
 
 
@@ -54,9 +64,14 @@ export function parseDataFromIso8601(value) {
  *    Date(2012,1,1)    => true
  *    Date(2015,1,1)    => false
  */
+<<<<<<< HEAD
 export function isLeapYear(date) {
   const year = date.getFullYear();
   return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+=======
+function isLeapYear(date) {
+  throw new Error('Not implemented');
+>>>>>>> 778a5ea2dbb619ba7271ad97e9070ecbe6d94fb5
 }
 
 
@@ -75,9 +90,14 @@ export function isLeapYear(date) {
  *    Date(2000,1,1,10,0,0),  Date(2000,1,1,10,0,0,250)     => "00:00:00.250"
  *    Date(2000,1,1,10,0,0),  Date(2000,1,1,15,20,10,453)   => "05:20:10.453"
  */
+<<<<<<< HEAD
 export function timeSpanToString(startDate, endDate) {
   const divDateString = new Date(endDate - startDate).toISOString();
   return divDateString.slice(11, -1);
+=======
+function timeSpanToString(startDate, endDate) {
+  throw new Error('Not implemented');
+>>>>>>> 778a5ea2dbb619ba7271ad97e9070ecbe6d94fb5
 }
 
 
@@ -95,6 +115,7 @@ export function timeSpanToString(startDate, endDate) {
  *    Date.UTC(2016,3,5,18, 0) => Math.PI
  *    Date.UTC(2016,3,5,21, 0) => Math.PI/2
  */
+<<<<<<< HEAD
 export function angleBetweenClockHands(date) {
   const hours = date.getUTCHours() % 12;
   const minutes = date.getUTCMinutes();
@@ -103,4 +124,16 @@ export function angleBetweenClockHands(date) {
   const angleDiv = Math.abs(hoursAngle - minutesAngle);
   const radians = angleDiv * Math.PI / 180;
   return angleDiv <= 180 ? radians : radians - Math.PI;
+=======
+function angleBetweenClockHands(date) {
+  throw new Error('Not implemented');
+>>>>>>> 778a5ea2dbb619ba7271ad97e9070ecbe6d94fb5
 }
+
+module.exports = {
+  parseDataFromRfc2822: parseDataFromRfc2822,
+  parseDataFromIso8601: parseDataFromIso8601,
+  isLeapYear: isLeapYear,
+  timeSpanToString: timeSpanToString,
+  angleBetweenClockHands: angleBetweenClockHands
+};

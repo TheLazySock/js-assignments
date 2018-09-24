@@ -21,9 +21,14 @@
  *    console.log(r.height);      // => 20
  *    console.log(r.getArea());   // => 200
  */
+<<<<<<< HEAD
 export function Rectangle(width, height) {
   this.width = width;
   this.height = height;
+=======
+function Rectangle(width, height) {
+  throw new Error('Not implemented');
+>>>>>>> 778a5ea2dbb619ba7271ad97e9070ecbe6d94fb5
 }
 
 Rectangle.prototype = {
@@ -42,8 +47,13 @@ Rectangle.prototype = {
  *    [1,2,3]   =>  '[1,2,3]'
  *    { width: 10, height : 20 } => '{"height":10,"width":20}'
  */
+<<<<<<< HEAD
 export function getJSON(obj) {
   return JSON.stringify(obj);
+=======
+function getJSON(obj) {
+  throw new Error('Not implemented');
+>>>>>>> 778a5ea2dbb619ba7271ad97e9070ecbe6d94fb5
 }
 
 
@@ -58,11 +68,16 @@ export function getJSON(obj) {
  *    var r = fromJSON(Rectangle.prototype, '{"width":10, "height":20}');
  *
  */
+<<<<<<< HEAD
 export function fromJSON(proto, json) {
   const args = JSON.parse(json);
   const obj = Object.create(proto);
   var res = Object.assign(obj, args);
   return res;
+=======
+function fromJSON(proto, json) {
+  throw new Error('Not implemented');
+>>>>>>> 778a5ea2dbb619ba7271ad97e9070ecbe6d94fb5
 }
 
 
@@ -121,10 +136,14 @@ export function fromJSON(proto, json) {
  *  For more examples see unit tests.
  */
 
+<<<<<<< HEAD
 export const cssSelectorBuilder = {
   str: '',
   doublesArray: [],
   orderArray: [],
+=======
+const cssSelectorBuilder = {
+>>>>>>> 778a5ea2dbb619ba7271ad97e9070ecbe6d94fb5
 
   element(value) {
     this.str += value;
@@ -208,4 +227,15 @@ export const cssSelectorBuilder = {
       return el;
     });    
   }
+<<<<<<< HEAD
 };
+=======
+};
+
+module.exports = {
+  Rectangle: Rectangle,
+  getJSON: getJSON,
+  fromJSON: fromJSON,
+  cssSelectorBuilder: cssSelectorBuilder
+};
+>>>>>>> 778a5ea2dbb619ba7271ad97e9070ecbe6d94fb5

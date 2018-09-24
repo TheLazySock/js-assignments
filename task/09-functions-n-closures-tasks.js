@@ -24,8 +24,13 @@
  *   getComposition(Math.sin, Math.asin)(x) => Math.sin(Math.acos(x))
  *
  */
+<<<<<<< HEAD
 export function getComposition(f, g) {
   return x => f(g(x));
+=======
+function getComposition(f, g) {
+  throw new Error('Not implemented');
+>>>>>>> 778a5ea2dbb619ba7271ad97e9070ecbe6d94fb5
 }
 
 
@@ -45,8 +50,13 @@ export function getComposition(f, g) {
  *   power05(16) => 4
  *
  */
+<<<<<<< HEAD
 export function getPowerFunction(exponent) {
   return x => Math.pow(x, exponent);
+=======
+function getPowerFunction(exponent) {
+  throw new Error('Not implemented');
+>>>>>>> 778a5ea2dbb619ba7271ad97e9070ecbe6d94fb5
 }
 
 
@@ -63,6 +73,7 @@ export function getPowerFunction(exponent) {
  *   getPolynom(8)     => y = 8
  *   getPolynom()      => null
  */
+<<<<<<< HEAD
 export function getPolynom() {
   return x => {
     let str = null;
@@ -71,6 +82,10 @@ export function getPolynom() {
     }
     return str;
   };
+=======
+function getPolynom() {
+  throw new Error('Not implemented');
+>>>>>>> 778a5ea2dbb619ba7271ad97e9070ecbe6d94fb5
 }
 
 
@@ -88,12 +103,17 @@ export function getPolynom() {
  *   ...
  *   memoizer() => the same random number  (next run, returns the previous cached result)
  */
+<<<<<<< HEAD
 export function memoize(func) {
   const obj = {};
   Object.defineProperty(obj, 'prop', {
     value: func()
   });
   return () => obj.prop;
+=======
+function memoize(func) {
+  throw new Error('Not implemented');
+>>>>>>> 778a5ea2dbb619ba7271ad97e9070ecbe6d94fb5
 }
 
 
@@ -112,6 +132,7 @@ export function memoize(func) {
  * }, 2);
  * retryer() => 2
  */
+<<<<<<< HEAD
 export function retry(func, attempts) {
   return () => {
     for (let i = 0; i < attempts; i++) {
@@ -123,6 +144,10 @@ export function retry(func, attempts) {
       }
     }
   };
+=======
+function retry(func, attempts) {
+  throw new Error('Not implemented');     
+>>>>>>> 778a5ea2dbb619ba7271ad97e9070ecbe6d94fb5
 }
 
 
@@ -149,6 +174,7 @@ export function retry(func, attempts) {
  * cos(3.141592653589793) ends
  *
  */
+<<<<<<< HEAD
 export function logger(func, logFunc) {
   return (...args) => {
     const argsString = JSON.stringify(args);
@@ -157,6 +183,10 @@ export function logger(func, logFunc) {
     logFunc(`${func.name}(${argsString.slice(1, -1)}) ends`);
     return result;
   };
+=======
+function logger(func, logFunc) {
+  throw new Error('Not implemented');
+>>>>>>> 778a5ea2dbb619ba7271ad97e9070ecbe6d94fb5
 }
 
 
@@ -173,12 +203,17 @@ export function logger(func, logFunc) {
  *   partialUsingArguments(fn, 'a','b','c')('d') => 'abcd'
  *   partialUsingArguments(fn, 'a','b','c','d')() => 'abcd'
  */
+<<<<<<< HEAD
 export function partialUsingArguments(fn) {
   const args1 = Array.from(arguments).slice(1);
   return (...args2) => {
     const result = args1.concat(args2);
     return fn(...result);
   };
+=======
+function partialUsingArguments(fn) {
+  throw new Error('Not implemented');
+>>>>>>> 778a5ea2dbb619ba7271ad97e9070ecbe6d94fb5
 }
 
 
@@ -199,8 +234,24 @@ export function partialUsingArguments(fn) {
  *   getId4() => 7
  *   getId10() => 11
  */
+<<<<<<< HEAD
 export function getIdGeneratorFunction(startFrom) {
   return () => {
     return startFrom++;
   };
+=======
+function getIdGeneratorFunction(startFrom) {
+  throw new Error('Not implemented');
+>>>>>>> 778a5ea2dbb619ba7271ad97e9070ecbe6d94fb5
 }
+
+module.exports = {
+  getComposition: getComposition,
+  getPowerFunction: getPowerFunction,
+  getPolynom: getPolynom,
+  memoize: memoize,
+  retry: retry,
+  logger: logger,
+  partialUsingArguments: partialUsingArguments,
+  getIdGeneratorFunction: getIdGeneratorFunction
+};

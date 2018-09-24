@@ -19,8 +19,13 @@
  *   'aa',''    => 'aa'
  *   '',  'bb'  => 'bb'
  */
+<<<<<<< HEAD
 export function concatenateStrings(value1, value2) {
   return value1.concat(value2);
+=======
+function concatenateStrings(value1, value2) {
+  throw new Error('Not implemented');
+>>>>>>> 778a5ea2dbb619ba7271ad97e9070ecbe6d94fb5
 }
 
 /**
@@ -34,8 +39,13 @@ export function concatenateStrings(value1, value2) {
  *   'b'     => 1
  *   ''      => 0
  */
+<<<<<<< HEAD
 export function getStringLength(value) {
   return value.length;
+=======
+function getStringLength(value) {
+  throw new Error('Not implemented');
+>>>>>>> 778a5ea2dbb619ba7271ad97e9070ecbe6d94fb5
 }
 
 /**
@@ -51,8 +61,13 @@ export function getStringLength(value) {
  *   'John','Doe'      => 'Hello, John Doe!'
  *   'Chuck','Norris'  => 'Hello, Chuck Norris!'
  */
+<<<<<<< HEAD
 export function getStringFromTemplate(firstName, lastName) {
   return `Hello, ${firstName} ${lastName}!`;
+=======
+function getStringFromTemplate(firstName, lastName) {
+  throw new Error('Not implemented');
+>>>>>>> 778a5ea2dbb619ba7271ad97e9070ecbe6d94fb5
 }
 
 /**
@@ -65,8 +80,13 @@ export function getStringFromTemplate(firstName, lastName) {
  *   'Hello, John Doe!' => 'John Doe'
  *   'Hello, Chuck Norris!' => 'Chuck Norris'
  */
+<<<<<<< HEAD
 export function  extractNameFromTemplate(value) {
   return value.slice(7, -1);
+=======
+function  extractNameFromTemplate(value) {
+  throw new Error('Not implemented');
+>>>>>>> 778a5ea2dbb619ba7271ad97e9070ecbe6d94fb5
 }
 
 
@@ -80,8 +100,13 @@ export function  extractNameFromTemplate(value) {
  *   'John Doe'  => 'J'
  *   'cat'       => 'c'
  */
+<<<<<<< HEAD
 export function getFirstChar(value) {
   return value[0];
+=======
+function getFirstChar(value) {
+  throw new Error('Not implemented');
+>>>>>>> 778a5ea2dbb619ba7271ad97e9070ecbe6d94fb5
 }
 
 /**
@@ -95,8 +120,13 @@ export function getFirstChar(value) {
  *   'cat'              => 'cat'
  *   '\tHello, World! ' => 'Hello, World!'
  */
+<<<<<<< HEAD
 export function removeLeadingAndTrailingWhitespaces(value) {
   return value.trim();
+=======
+function removeLeadingAndTrailingWhitespaces(value) {
+  throw new Error('Not implemented');
+>>>>>>> 778a5ea2dbb619ba7271ad97e9070ecbe6d94fb5
 }
 
 /**
@@ -110,8 +140,13 @@ export function removeLeadingAndTrailingWhitespaces(value) {
  *   'A', 5  => 'AAAAA'
  *   'cat', 3 => 'catcatcat'
  */
+<<<<<<< HEAD
 export function repeatString(value, count) {
   return value.repeat(count);
+=======
+function repeatString(value, count) {
+  throw new Error('Not implemented');
+>>>>>>> 778a5ea2dbb619ba7271ad97e9070ecbe6d94fb5
 }
 
 /**
@@ -126,8 +161,13 @@ export function repeatString(value, count) {
  *   'I like legends', 'end' => 'I like legs',
  *   'ABABAB','BA' => 'ABAB'
  */
+<<<<<<< HEAD
 export function removeFirstOccurrences(str, value)  {
   return str.replace(value, '');
+=======
+function removeFirstOccurrences(str, value)  {
+  throw new Error('Not implemented');
+>>>>>>> 778a5ea2dbb619ba7271ad97e9070ecbe6d94fb5
 }
 
 /**
@@ -141,8 +181,13 @@ export function removeFirstOccurrences(str, value)  {
  *   '<span>' => 'span'
  *   '<a>' => 'a'
  */
+<<<<<<< HEAD
 export function unbracketTag(str) {
   return str.replace(/[<>]/g, '');
+=======
+function unbracketTag(str) {
+  throw new Error('Not implemented');
+>>>>>>> 778a5ea2dbb619ba7271ad97e9070ecbe6d94fb5
 }
 
 
@@ -156,8 +201,13 @@ export function unbracketTag(str) {
  *   'Thunderstruck' => 'THUNDERSTRUCK'
  *  'abcdefghijklmnopqrstuvwxyz' => 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
  */
+<<<<<<< HEAD
 export function convertToUpperCase(str) {
   return str.toUpperCase();
+=======
+function convertToUpperCase(str) {
+  throw new Error('Not implemented');
+>>>>>>> 778a5ea2dbb619ba7271ad97e9070ecbe6d94fb5
 }
 
 /**
@@ -171,8 +221,13 @@ export function convertToUpperCase(str) {
  *     ['angus.young@gmail.com', 'brian.johnson@hotmail.com', 'bon.scott@yahoo.com']
  *   'info@gmail.com' => ['info@gmail.com']
  */
+<<<<<<< HEAD
 export function extractEmails(str) {
   return str.split(';');
+=======
+function extractEmails(str) {
+  throw new Error('Not implemented');
+>>>>>>> 778a5ea2dbb619ba7271ad97e9070ecbe6d94fb5
 }
 
 /**
@@ -198,10 +253,15 @@ export function extractEmails(str) {
  *             '└──────────┘\n'
  *
  */
+<<<<<<< HEAD
 export function getRectangleString(width, height) {
   return '┌' + '─'.repeat(width - 2) + '┐\n'
            + ('│' + ' '.repeat(width - 2) + '│\n').repeat(height - 2)
            + '└' + '─'.repeat(width-2) + '┘\n';
+=======
+function getRectangleString(width, height) {
+  throw new Error('Not implemented');
+>>>>>>> 778a5ea2dbb619ba7271ad97e9070ecbe6d94fb5
 }
 
 
@@ -221,12 +281,17 @@ export function getRectangleString(width, height) {
  *          'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'
  *
  */
+<<<<<<< HEAD
 export function encodeToRot13(str) {
   return str.replace( /[A-Za-z]/g, char => {
     return String.fromCharCode(char.charCodeAt(0) + (char.toUpperCase() < 'N'
       ? 13
       : -13));
   });
+=======
+function encodeToRot13(str) {
+  throw new Error('Not implemented');
+>>>>>>> 778a5ea2dbb619ba7271ad97e9070ecbe6d94fb5
 }
 
 /**
@@ -242,8 +307,13 @@ export function encodeToRot13(str) {
  *   isString('test') => true
  *   isString(new String('test')) => true
  */
+<<<<<<< HEAD
 export function isString(value) {
   return typeof value === 'string' || value instanceof String;
+=======
+function isString(value) {
+  throw new Error('Not implemented');
+>>>>>>> 778a5ea2dbb619ba7271ad97e9070ecbe6d94fb5
 }
 
 
@@ -271,6 +341,7 @@ export function isString(value) {
  *   'Q♠' => 50
  *   'K♠' => 51
  */
+<<<<<<< HEAD
 export function getCardId(value) {
   const cardsSuits = { '♣': 0, '♦': 13, '♥': 26, '♠': 39 };
   const cardsValues = [
@@ -290,4 +361,26 @@ export function getCardId(value) {
   ];
   return cardsSuits[value.substr(-1, 1)]
     + cardsValues.indexOf(value.match(/\w/g).join(''));
+=======
+function getCardId(value) {
+  throw new Error('Not implemented');
+>>>>>>> 778a5ea2dbb619ba7271ad97e9070ecbe6d94fb5
 }
+
+module.exports = {
+  concatenateStrings: concatenateStrings,
+  getStringLength: getStringLength,
+  getStringFromTemplate: getStringFromTemplate,
+  extractNameFromTemplate: extractNameFromTemplate,
+  getFirstChar: getFirstChar,
+  removeLeadingAndTrailingWhitespaces: removeLeadingAndTrailingWhitespaces,
+  repeatString: repeatString,
+  removeFirstOccurrences: removeFirstOccurrences,
+  unbracketTag: unbracketTag,
+  convertToUpperCase: convertToUpperCase,
+  extractEmails: extractEmails,
+  getRectangleString: getRectangleString,
+  encodeToRot13: encodeToRot13,
+  isString: isString,
+  getCardId: getCardId
+};
